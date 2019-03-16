@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nar_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Màn hình chính"></item>
+        <item
+            android:id="@+id/nar_branche"
+            android:icon="@drawable/ic_branche_black_24dp"
+            android:title="Phân loại, danh mục"></item>
+        <item
+            android:id="@+id/nar_listProduct"
+            android:icon="@drawable/ic_list_product_24dp"
+            android:title="Danh sách món hàng"></item>
+        <item
+            android:id="@+id/nar_bill"
+            android:icon="@drawable/ic_bill_24dp"
+            android:title="Danh sách hóa đơn"></item>
+        <item
+            android:id="@+id/nar_thongke"
+            android:icon="@drawable/ic_thongke_24dp"
+            android:title="Thống kê"></item>
+        <item
+            android:id="@+id/nar_account"
+            android:icon="@drawable/ic_person_pin_black_24dp"
+            android:title="Danh sách KH"></item>
+    </group>
+    <item
+
+        android:title="Thông tin thêm">
+        <menu>
+
+            <item
+                android:id="@+id/nar_inform"
+                android:title="Thông tin của hàng"></item>
+            <item
+                android:id="@+id/nar_huongdan"
+                android:title="Hưỡng dẫn sủ dụng"></item>
+        </menu>
+    </item>
+</menu>
