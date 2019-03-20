@@ -27,10 +27,16 @@
     <include layout="@layout/cotent_main" />
 
     <android.support.design.widget.FloatingActionButton
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
         android:id="@+id/fl_btnAdd"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:borderWidth="2dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
         app:srcCompat="@drawable/ic_add_black_24dp" />
 
 </android.support.design.widget.CoordinatorLayout>
