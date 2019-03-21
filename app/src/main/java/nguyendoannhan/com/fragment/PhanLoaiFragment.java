@@ -1,4 +1,4 @@
-package nguyendoannhan.com;
+package nguyendoannhan.com.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DSKhachHangFragment extends Fragment {
+import nguyendoannhan.com.R;
+
+public class PhanLoaiFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.danhsach_khachang_fragment, container, false);
+        return inflater.inflate(R.layout.danhsach_khachang_fragment,container,false);
     }
 }
+
+

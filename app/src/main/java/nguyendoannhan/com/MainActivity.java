@@ -1,6 +1,5 @@
 package nguyendoannhan.com;
 
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -10,14 +9,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.ToolbarWidgetWrapper;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.google.firebase.database.FirebaseDatabase;
+import nguyendoannhan.com.view.DSKhachHangFragment;
+import nguyendoannhan.com.view.DanhDachMHFragment;
+import nguyendoannhan.com.view.DanhSachHoaDonFragment;
+import nguyendoannhan.com.view.ManHinhFragment;
+import nguyendoannhan.com.view.PhanLoaiFragment;
+import nguyendoannhan.com.view.ThongKeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
+        FloatingActionButton fl_btnAdd = (FloatingActionButton) findViewById(R.id.fl_btnAdd);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nar_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

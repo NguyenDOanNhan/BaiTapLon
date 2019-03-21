@@ -1,4 +1,4 @@
 package nguyendoannhan.com.model;
 
-public class MatHang {
+public class Product {
 }
