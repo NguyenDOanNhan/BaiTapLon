@@ -1,4 +1,4 @@
-package nguyendoannhan.com.view;
+package nguyendoannhan.com.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
