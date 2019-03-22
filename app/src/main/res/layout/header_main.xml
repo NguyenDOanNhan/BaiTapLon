@@ -2,35 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:padding="16dp"
-    android:gravity="bottom"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:background="@drawable/background_apq"
-    android:orientation="vertical">
-    <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:paddingTop="8dp"
-        android:orientation="vertical"
-        android:background="@color/backgroundnen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textStyle="bold"
-            android:id="@+id/tv_tenCH"
-            android:text="Nguyễn Doãn Nhân"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:textStyle="bold"
-            android:text="nguyendoannhan.ptit@gmail.com"
-            android:id="@+id/tv_emailCH"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/tv_tenCH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mauquangcao"
+            android:text="Nguyễn Doãn Nhân"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_emailCH"
+            android:background="@color/mauquangcao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="nguyendoannhan.ptit@gmail.com"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 </LinearLayout>

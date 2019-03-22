@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIn="@layout/app_bar_main"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-  <FrameLayout
-      android:id="@+id/fragment_container"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    //đây là nói màn hình và bốc cục trang trí cho các fragment
+    // layout_behavior su dung để chỉnh sao cho app bar năm trên và framlayout năm dưới nó
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

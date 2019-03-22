@@ -28,22 +28,15 @@ import nguyendoannhan.com.fragment.ThongKeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private int menuId;
+    private Toolbar toolbar; // là nơi để viết tiêu đề áp , bình thường là mặc định tên app
+    private ActionBarDrawerToggle toggle;
+    private int menuId;// la thuoc tinh de gan cho mot fragemt để nó hoạt động floatActonButton theo tung giao dien
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(getCurentTime());
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
+        InitActivity();
         FloatingActionButton fl_btnAdd = (FloatingActionButton) findViewById(R.id.fl_btnAdd);
         fl_btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case 0:
                         Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
                         break;
-                    case 1:{
+                    case 1: {
                         Toast.makeText(MainActivity.this, "nhan", Toast.LENGTH_SHORT).show();
                         break;
                     }
@@ -69,9 +62,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public void InitActivity() {
+        // là nơi ánh xạ các chức năng
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        setSupportActionBar(toolbar);// hien thi cua so tool bar
+        toolbar.setTitle(getCurentTime()); // set time cho home\
+        toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState(); // ho tro nut button bar
+
+    }
+
     @Override
     public void onBackPressed() {
-
+        // quay vè màn hình toolbar sau khi chọn các sự kiện trong navigation
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.menu_doiMK: {
                 startActivity(new Intent(MainActivity.this, DanhMucActivity.class));
+                // chuyên màn hình khi nhấn sự kiện này, và chuyên theo doạn intent
 //                Toast.makeText(this, "Đồi mật khẩu", Toast.LENGTH_SHORT).show();
                 break;
             }
@@ -126,37 +133,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.nar_bill: {
+                menuId = 3;
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DanhSachHoaDonFragment()).commit();
                 toolbar.setTitle("Danh sách hóa đơn");
                 break;
             }
             case R.id.nar_thongke: {
+                menuId = 4;
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ThongKeFragment()).commit();
                 toolbar.setTitle("Thống kê");
                 break;
             }
             case R.id.nar_account: {
+                menuId = 5;
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DSKhachHangFragment()).commit();
                 toolbar.setTitle("Danh sách khách hàng");
                 break;
             }
             case R.id.nar_inform: {
+                menuId = 6;
                 Toast.makeText(this, "Thông tin của hàng", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.nar_huongdan: {
+                menuId = 7;
                 Toast.makeText(this, "Hưỡng Dẫn về app", Toast.LENGTH_SHORT).show();
+                break;
             }
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        // đóng narvigation khi nhấn vào item
 
         return true;
     }
 
 
     public String getCurentTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // định dạng ngày tháng
         Date currentDate = new Date();
         return dateFormat.format(currentDate.getTime()).toString();
     }
