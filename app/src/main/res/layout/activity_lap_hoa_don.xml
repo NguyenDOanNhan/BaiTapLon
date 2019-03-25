@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/nen"
-    tools:context=".content.DanhMucActivity">
+    tools:context=".content.LapHoaDonActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.AppBarOverlay"
-            app:title="Danh Mục Sản phẩm">
+            app:title="Lập Hóa Đơn">
 
         </android.support.v7.widget.Toolbar>
 

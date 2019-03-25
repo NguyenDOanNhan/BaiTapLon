@@ -2,4 +2,6 @@
     <string name="app_name">QuanLyBanHang_Nhom3</string>
     <string name="open">ƠPEN</string>
     <string name="close">CLOSE</string>
+    <string name="ThemDanhMuc">Thêm danh mục phân loại</string>
+
 </resources>

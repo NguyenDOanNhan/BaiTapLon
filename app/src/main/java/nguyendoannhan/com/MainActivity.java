@@ -1,5 +1,6 @@
 package nguyendoannhan.com;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -13,12 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import nguyendoannhan.com.content.DanhMucActivity;
+import nguyendoannhan.com.content.LapHoaDonActivity;
+import nguyendoannhan.com.content.ThemSanPhamActivity;
 import nguyendoannhan.com.fragment.DSKhachHangFragment;
 import nguyendoannhan.com.fragment.DanhDachMHFragment;
 import nguyendoannhan.com.fragment.DanhSachHoaDonFragment;
@@ -28,8 +34,16 @@ import nguyendoannhan.com.fragment.ThongKeFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar; // là nơi để viết tiêu đề áp , bình thường là mặc định tên app
     private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar; // là nơi để viết tiêu đề áp , bình thường là mặc định tên app
+
+    private Dialog dialog;
+    private EditText edt_dilog_tenDM;
+    private EditText edt_dilog_thutuDM;
+    private Button btn_dilog_huybo;
+    private Button btn_dilog_guidi;
+
+
     private int menuId;// la thuoc tinh de gan cho mot fragemt để nó hoạt động floatActonButton theo tung giao dien
 
     @Override
@@ -43,10 +57,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 switch (menuId) {
                     case 0:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, LapHoaDonActivity.class));
                         break;
                     case 1: {
-                        Toast.makeText(MainActivity.this, "nhan", Toast.LENGTH_SHORT).show();
+                        //alert hien thi dang nhap them danh muc phan loai
+                        DilogThemDanhMuc();
+                        break;
+                    }
+                    case 2: {
+                        startActivity(new Intent(MainActivity.this, ThemSanPhamActivity.class));
+                        break;
+                    }
+                    case 3: {
+                        startActivity(new Intent(MainActivity.this, LapHoaDonActivity.class));
                         break;
                     }
                 }
@@ -66,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // là nơi ánh xạ các chức năng
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         setSupportActionBar(toolbar);// hien thi cua so tool bar
         toolbar.setTitle(getCurentTime()); // set time cho home\
         toggle = new ActionBarDrawerToggle(
@@ -97,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_doiMK: {
-                startActivity(new Intent(MainActivity.this, DanhMucActivity.class));
+                // hien len alert doi mat khau
                 // chuyên màn hình khi nhấn sự kiện này, và chuyên theo doạn intent
 //                Toast.makeText(this, "Đồi mật khẩu", Toast.LENGTH_SHORT).show();
                 break;
@@ -174,5 +198,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // định dạng ngày tháng
         Date currentDate = new Date();
         return dateFormat.format(currentDate.getTime()).toString();
+    }
+
+    public void DilogThemDanhMuc() {
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dilog_them_danh_muc);
+        // cua dilog them danh muc
+        edt_dilog_tenDM = (EditText) dialog.findViewById(R.id.edt_ThemDM);
+        edt_dilog_thutuDM = (EditText) dialog.findViewById(R.id.edt_ThutuDM);
+        btn_dilog_guidi = (Button) dialog.findViewById(R.id.btn_dilog_guidi);
+        btn_dilog_huybo = (Button) dialog.findViewById(R.id.btn_dilog_huy);
+        //
+        btn_dilog_guidi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tendanhmuc = edt_dilog_tenDM.getText().toString();
+                int thutuDM = Integer.parseInt(edt_dilog_thutuDM.getText().toString());
+                // đây là ví dụ thôi nhé, mn làm một Grawview rồi cho vào nhé
+
+                if (tendanhmuc.equals("nhan") && thutuDM == 1) {
+                    Toast.makeText(MainActivity.this, "ok da nhap dung danh muc", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Lỗi nhập danh mục", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btn_dilog_huybo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss(); //  tat mot của sổ hiện tại nếu là intent thi dùng finish()
+            }
+        });
+
+        dialog.show();
+
+
     }
 }

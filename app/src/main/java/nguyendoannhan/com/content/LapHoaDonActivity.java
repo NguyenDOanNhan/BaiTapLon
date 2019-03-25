@@ -9,13 +9,13 @@ import android.widget.Toast;
 
 import nguyendoannhan.com.R;
 
-public class DanhMucActivity extends AppCompatActivity {
+public class LapHoaDonActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_danh_muc);
+        setContentView(R.layout.activity_lap_hoa_don);
         toolbar = (Toolbar) findViewById(R.id.toolbarDM);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp); // hỗ trọ nút mũi tên quay về màn hình  ban đầu

@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ThemDanhMuc"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <EditText
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:id="@+id/edt_ThemDM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên danh mục"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:id="@+id/edt_ThutuDM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Thứ tự danh mục"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColorHint="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_dilog_huy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hủy bỏ"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_dilog_guidi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gửi đi"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>
