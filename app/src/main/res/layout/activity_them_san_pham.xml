@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/nen"
+    android:orientation="vertical"
     tools:context=".content.ThemSanPhamActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -21,8 +22,231 @@
             app:title="Thêm sản phẩm">
 
         </android.support.v7.widget.Toolbar>
-
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="8dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90sp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:id="@+id/tv_mavach"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center|left"
+                    android:text="Mã Vạch"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:inputType="number"
+                    android:id="@+id/edt_MaVach"
+                    android:layout_width="180dp"
+                    android:layout_height="45dp"
+                    android:layout_toRightOf="@id/tv_mavach"
+                    android:hint="Mã Vạch"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <Button
+                    android:id="@+id/btn_saveSP"
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_toRightOf="@id/edt_MaVach"
+                    android:background="@drawable/ic_save_black_24dp"
+                    android:gravity="center" />
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_scanSP"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_mavach"
+                android:layout_gravity="start|center"
+                android:layout_marginLeft="16dp"
+                android:background="@color/green"
+                android:text="Quét mã vạch"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_tenMH"
+                android:layout_width="120dp"
+                android:layout_height="45sp"
+                android:layout_marginLeft="16dp"
+                android:gravity="center|start"
+                android:text="Tên món hàng"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/edt_tenMH"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_toRightOf="@id/tv_tenMH"
+                android:gravity="start|center"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_tenDM"
+                android:layout_width="120dp"
+                android:layout_height="45sp"
+                android:layout_below="@id/tv_tenMH"
+                android:layout_marginLeft="16dp"
+                android:gravity="center|start"
+                android:text="Tên danh mục"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/edt_tenDM"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_below="@id/edt_tenMH"
+                android:layout_toRightOf="@id/tv_tenDM"
+                android:gravity="start|center"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_giaNhapvao"
+                android:layout_width="120dp"
+                android:layout_height="45sp"
+                android:layout_below="@id/tv_tenDM"
+                android:layout_marginLeft="16dp"
+                android:gravity="center|start"
+                android:text="Giá nhập vào"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/edt_giaNhapvao"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_below="@id/edt_tenDM"
+                android:layout_toRightOf="@id/tv_giaNhapvao"
+                android:gravity="start|center"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_giaBanra"
+                android:layout_width="120dp"
+                android:layout_height="45sp"
+                android:layout_below="@id/tv_giaNhapvao"
+                android:layout_marginLeft="16dp"
+                android:gravity="center|start"
+                android:text="Giá bán ra"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/edt_giaBanra"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_below="@id/edt_giaNhapvao"
+                android:layout_toRightOf="@id/tv_tenDM"
+                android:gravity="start|center"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_Soluong"
+                android:layout_width="120dp"
+                android:layout_height="45sp"
+                android:layout_below="@id/tv_giaBanra"
+                android:layout_marginLeft="16dp"
+                android:gravity="center|start"
+                android:text="Số lượng"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/edt_Soluong"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_below="@id/edt_giaBanra"
+                android:layout_toRightOf="@id/tv_giaNhapvao"
+                android:gravity="start|center"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_huyBoSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_Soluong"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/green"
+                android:text="Hủy bỏ"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_guidiSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edt_Soluong"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/green"
+                android:gravity="center"
+                android:text="Gửi đi"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>
